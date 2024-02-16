@@ -8,15 +8,11 @@ Since arrays are linear, random access data structures, you can access an elemen
 _Advantages and disadvantages linked lists_
 Unlike arrays and their fixed size when they are declared, linked lists can dynamically resize themselves so no memory is wasted. Another advantage is that if the element is at the head or tail (if the tail pointer is included in the implementation), this results in a $O(1)$ operation. However, some disadvantages are when traversal is needed to find an element that is not at the head or tail which results in a $O(n)$ operation in the average and worst case.
 
----
-
 ### 2
 
 ---
 
 If the index of the element that we want to delete/insert into is known, then we can delete this element and move all the elements after the specified index to the right which would be an $O(n)$ operation. We then can insert the element into the array which is an $O(1)$ operation since we know the index where we want to insert the element.
-
----
 
 ### 3
 
