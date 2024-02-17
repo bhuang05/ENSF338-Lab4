@@ -1,3 +1,6 @@
+import timeit
+import matplotlib.pyplot as plt
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -67,10 +70,14 @@ class LinkedList:
             current = current.next
         print()
 
+
+# Creating list sizes of 1000, 2000, 3000, 4000
 sizes = [1000, 2000, 3000, 4000]
 old_reversed_lists = []
 new_reversed_lists = []
 
+
+# Appending the linkedlists of different sizes to another list
 for size in sizes:
     old_reverse = LinkedList()
     for i in range(size):
@@ -83,36 +90,19 @@ for size in sizes:
         new_reverse.insert_tail(Node(i))
     new_reversed_lists.append(new_reverse)
 
+# Timing the old and new reverse functions 100 times each
+old_reverse_times = []
+new_reverse_times = []
 
+for i in range(len(sizes)):
+    old_reverse_times.append(timeit.timeit(old_reversed_lists[i].reverse, number=100))
+    new_reverse_times.append(timeit.timeit(new_reversed_lists[i].optimized_reverse, number=100))
 
-
-# Example usage:
-sll = LinkedList()
-sll.insert_tail(Node(1))
-sll.insert_tail(Node(2))
-sll.insert_tail(Node(3))
-sll.insert_tail(Node(4))
-
-print("Original List:")
-sll.print_list()
-
-sll.reverse()
-
-print("Reversed List:")
-sll.print_list()
-
-
-sll2 = LinkedList()
-sll2.insert_tail(Node(1))
-sll2.insert_tail(Node(2))
-sll2.insert_tail(Node(3))
-sll2.insert_tail(Node(4))
-
-
-print("Original List2:")
-sll2.print_list()
-
-sll2.optimized_reverse()
-
-print("Reversed List2:")
-sll.print_list()
+# Plotting the times
+plt.plot(sizes, old_reverse_times, label="Old Reverse")
+plt.plot(sizes, new_reverse_times, label="New Reverse")
+plt.xlabel("Size of List")
+plt.ylabel("Time")
+plt.title("Old vs New Reverse")
+plt.legend()
+plt.show()
