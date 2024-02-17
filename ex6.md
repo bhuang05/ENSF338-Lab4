@@ -28,6 +28,6 @@ Merge sort can also be implemented into a doubly linked list. Compared to insert
 
 ### 4
 
-As mentioned above, insertion sort in a doubly linked list has a time complexity of $O(n^2)$ and merge sort in a doubly linked list has a time complexity of $O(n log(n))$. Similar to a regular array, insertion sort in its average case has a time complexity $O(n^2)$ and merge sort in its average case has a time complexity of $O(n log(n))$.
+As mentioned above, insertion sort in a doubly linked list has a time complexity of $O(n^2)$ and merge sort in a doubly linked list has a time complexity of $O(n log(n))$. Similarily to a regular array, insertion sort in its average case has a time complexity $O(n^2)$ and merge sort in its average case has a time complexity of $O(n log(n))$.
 
 Thus, there is no difference in time complexity.
